@@ -13,7 +13,6 @@ venv
 /playwright-report
 
 # next.js
-/.next/
 /out/
 .swc
 
