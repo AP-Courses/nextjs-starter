@@ -25,12 +25,11 @@ jobs:
         run: npm run build
         env:
           FLAGSMITH_KEY: ${{ secrets.FLAGSMITH_KEY }}
-      - name: Build Directory Files List
-        run: ls ${{ github.workspace }}/.next/
       - uses: actions/upload-artifact@v4
         with:
           name: build
-          path: ${{ github.workspace }}/.next/
+          include-hidden-files: true
+          path: .next/
       - name: Run Unit Tests
         run: npm run test
       - uses: actions/upload-artifact@v4
