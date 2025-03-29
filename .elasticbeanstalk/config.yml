@@ -1,4 +1,6 @@
 branch-defaults:
+  main:
+    environment: gha-course-staging
   master:
     environment: null
     group_suffix: null
