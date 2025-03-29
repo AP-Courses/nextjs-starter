@@ -35,7 +35,7 @@ jobs:
         if: always()
         with:
           name: coverage
-          path: .next/
+          path: coverage/
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v5
         with:
