@@ -28,6 +28,7 @@ on:
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}-${{ inputs.aws-env }}-${{ inputs.github-env }}
   cancel-in-progress: true
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
