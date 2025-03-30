@@ -76,10 +76,10 @@ jobs:
       - name: Initialize ElasticBeanstalk
         run: eb init ${{ vars.AWS_EB_APP_NAME }} --platform "${{ vars.AWS_EB_PLATFORM }}" --region ${{ vars.AWS_REGION }}
       - name: Create a New Environment
-        if: steps.get-env-name.outputs.aws_env == 'None' || steps.get-env-status.outputs.aws_env_status == 'Terminated'
+        if: steps.get-env-name.outputs.aws_env == 'None' || steps.get-env-status.outputs.aws_env_status != 'Ready'
         run: eb create ${{ inputs.aws-env }} --instance-types ${{ vars.AWS_EB_ENV_INSTANCE_TYPES }} --cname ${{ inputs.aws-env }} --envvars FLAGSMITH_KEY=${{ secrets.FLAGSMITH_KEY }}
       - name: Deploy if Environment Exists
-        if: steps.get-env-name.outputs.aws_env == inputs.aws-env || steps.get-env-status.outputs.aws_env_status != 'Terminated'
+        if: steps.get-env-name.outputs.aws_env == inputs.aws-env || steps.get-env-status.outputs.aws_env_status == 'Ready'
         run: eb deploy
       - name: Get AWS ENV CNAME
         id: get-env-cname
