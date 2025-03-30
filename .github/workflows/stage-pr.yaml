@@ -36,7 +36,7 @@ jobs:
               inputs: {
                 "aws-env": `github-actions-course-demo-pr-${{ context.issue.number }}`,
                 "github-env": "staging",
-                "report-pr": `${{ context.issue. number }}`
+                "report-pr": `${{ context.issue.number }}`
               }
             })
             console.log(response)
