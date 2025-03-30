@@ -30,14 +30,14 @@ jobs:
           script: |
             console.log(${{ steps.get-head-ref.outputs.result }})
             const response = await github.rest.actions.createWorkflowDispatch({
-              "owner": context.repo.owner,
-              "repo": context.repo.repo,
-              "workflow_id": "deploy.yaml"
-              "ref": "${{ steps.get-head-ref.outputs.result }}",
-              "inputs": {
-                "aws-env": `github-actions-course-demo-pr-${context.issue.number}`,
-                "github-env": "staging",
-                "report-pr": `${context.issue.number}`
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'deploy.yaml'
+              ref: '${{ steps.get-head-ref.outputs.result }}',
+              inputs: {
+                aws-env: `github-actions-course-demo-pr-${context.issue.number}`,
+                github-env: "staging",
+                report-pr: `${context.issue.number}`
               }
             })
             console.log(response)
