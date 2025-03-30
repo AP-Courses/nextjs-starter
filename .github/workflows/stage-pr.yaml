@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       actions: write
-    if: github.event.issue.pull_request && github.event.issue-state == 'open' && github.event.comment.body == '/deploy'
+    if: github.event.issue.pull_request && github.event.issue.state == 'open' && github.event.comment.body == '/deploy'
     steps:
       - name: Get Pull Request Head Ref
         id: get-head-ref
