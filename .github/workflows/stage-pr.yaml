@@ -28,6 +28,7 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
+            console.log(${{ steps.get-head-ref.outputs.result }})
             const response = await github.rest.actions.createWorkflowDispatch({
               "owner": context.repo.owner,
               "repo": context.repo.repo,
