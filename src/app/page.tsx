@@ -11,7 +11,7 @@ export default async function Home() {
         <h2>Hello World</h2>
       </div>
       <Link href="/about">About</Link>
-      {flags.isFeatureEnabled("search") && <input placeholder="search"/>}
+      {flags.isFeatureEnabled("search") && <input placeholder="search" />}
     </main>
   );
 }
